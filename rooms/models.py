@@ -11,6 +11,17 @@ class Room(TimeStampedModel):
         verbose_name=_('Room name'),
         max_length=75,
         blank=True,
-        null=False
+        null=False,
     )
 
+
+class Message(TimeStampedModel):
+    """
+    Model for save messages
+    """
+    room = models.ForeignKey('Room', related_name='messages')
+    text = models.CharField(
+        max_length=75,
+        blank=True,
+        verbose_name=_('Text of the message')
+    )
