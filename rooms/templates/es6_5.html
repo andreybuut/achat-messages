@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .h1 {
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+<script>
+    const song = {
+        name: 'Dying to live',
+        artist: 'Tupac',
+        featuring: 'Biggie Smalls'
+    };
+
+    const markup = `
+        <div class="song">
+            <p>
+            ${song.name} - ${song.artist}
+            ${song.featuring ? `(Featuring ${song.featuring})`: ''}
+            </p>
+         </div>
+
+    `;
+    document.body.innerHTML = markup;
+
+    const beer = {
+        name: 'Belgian Wit',
+        brewery: 'Steam Whistle Brewery',
+        keywords: ['pale', 'cloudy', 'cpiced', 'crisp']
+    };
+    function renderKeywords(keywords) {
+        return `
+        <ul>
+            ${keywords.map(keyword => `<li>${keyword}</li>`).join('')}
+        </ul>
+        `;
+    }
+    const markup2 = `
+        <div class="beer">
+            <h2>${beer.name}</h2>
+            <p class="brewery"> ${beer.brewery}</p>
+            ${renderKeywords(beer.keywords)}
+         </div>
+
+    `;
+    document.body.innerHTML = markup2;
+
+    function highlight(strings, ...values){
+        let str ='';
+        strings.forEach((string, i) =>{
+            str += `${string} <span contenteditable class="h1"> ${values[i] || ''}</span>`
+        })
+        return str;
+    }
+
+    const name = 'Snickers';
+    const age = 100;
+    const sentance_3 = highlight`My dog's name is ${name}
+    and he is ${age} years old
+    `;
+    console.log(sentance_3);
+    document.body.innerHTML = sentance_3;
+
+</script>
+</body>
+</html>

@@ -8,7 +8,7 @@ from rooms.models import Room, Message
 from rooms.serializer import RoomSerializer, MessageSerializer
 
 
-class ApiRoot(generics.GenericAPIView):
+class ApiRoot(viewsets.GenericViewSet):
     name = 'api-root'
 
     def get(self, request, *args, **kwargs):
@@ -18,14 +18,25 @@ class ApiRoot(generics.GenericAPIView):
             })
 
 
-class RoomListView(generics.ListCreateAPIView):
-    name = 'room-list'
+class RoomListView(
+    mixins.ListModelMixin,
+    viewsets.GenericViewSet
+):
+    name = 'rooms-list'
     queryset = Room.objects.all()
     serializer_class = RoomSerializer
 
 
-class RoomDetailView(generics.RetrieveUpdateDestroyAPIView):
-    name = 'room-detail'
+class RoomDetailView(
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.ListModelMixin,
+    viewsets.GenericViewSet
+
+):
+    name = 'rooms-detail'
+
     queryset = Room.objects.all()
     serializer_class = RoomSerializer
 
@@ -37,11 +48,13 @@ class MessageListView(viewsets.ViewSet,
     serializer_class = MessageSerializer
 
 
-class MessageDetailView(mixins.CreateModelMixin,
-                        mixins.RetrieveModelMixin,
-                        mixins.UpdateModelMixin,
-                        viewsets.GenericViewSet,
-                        mixins.ListModelMixin):
+class MessageDetailViewSet(
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.ListModelMixin,
+    viewsets.GenericViewSet
+):
     name = 'messages-detail'
     serializer_class = MessageSerializer
     queryset = Message.objects.all()

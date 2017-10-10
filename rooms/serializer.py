@@ -4,7 +4,7 @@ from rooms.models import Room, Message
 
 class RoomSerializer(serializers.HyperlinkedModelSerializer):
     messages = serializers.HyperlinkedRelatedField(
-        view_name='message-detail',
+        view_name='rooms-detail',
         many=True,
         read_only=True
     )
