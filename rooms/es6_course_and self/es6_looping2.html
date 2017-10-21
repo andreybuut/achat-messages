@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Hi i,m p 1</p>
+<p>Hi i,m p 2</p>
+<p>Hi i,m p3</p>
+<p>Hi i,m p43</p>
+<p>Hi i,m p5</p>
+<p>Hi i,m p6</p>
+<p>Hi i,m p7</p>
+<p>Hi i,m p8</p>
+<p>Hi i,m p9</p>
+<p>Hi i,m p01</p>
+<p>Hi i,m p11</p>
+<p>Hi i,m p12</p>
+<script>
+
+    function addComment(name, i){
+
+    }
+
+    const cuts = ['Chuck', 'Brisket', 'shank', 'Short Rib'];
+
+//    for (const [i, cut] of cuts.entries()){
+//        console.log(cut, '#221');
+//        console.log(`index : ${i + 1} and name ${cut}`);
+//        if (cut === 'shank'){
+//            break;
+//        }
+//    }
+    function addUpNumber(){
+        console.log(arguments);
+        let total = 0;
+        for (num of arguments){
+            total += num;
+        }
+        console.log(total);
+        return total;
+
+    }
+    //addUpNumber(1, 23,45,4543, 345345,53,343,2332,232);
+    const name = 'Wes Bos';
+    for (char of name){
+        console.log(char);
+    }
+    const ps = document.querySelectorAll('p');
+    console.log(ps);
+    for (const paragraph of ps){
+        paragraph.addEventListener('click', function(){
+            console.log(this.textContent);
+        })
+    }
+
+    const apple ={
+        color: 'red',
+        size:'Medium',
+        weight: 50,
+        sugar: 10
+    };
+    for (const prop of Object.keys(apple)){
+        const value = apple[prop];
+        console.log(value, prop);
+    }
+
+    for (const prop in apple){
+        const value = apple[prop];
+        console.log(value, prop);
+    }
+</script>
+</body>
+</html>

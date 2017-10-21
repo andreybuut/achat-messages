@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body> 
+    <script>
+        let dog1 = {name: 'snick'};
+        let dog2 = {name: 'snick'};
+
+        const strong = new Map();
+        const weak = new WeakMap();
+
+        strong.set(dog1, 'Snickers is the best');
+        weak.set(dog2, 'sunny is the 2nd best!');
+
+        dog1 = null;
+        dog2 = null;
+
+        console.log(strong, 'and waek', weak);
+
+
+
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <video controls class="handsome"></video>
+    <script type="text/javascript">
+        // const res = fetch('https://api.github.com/users/wesbos');
+
+        // fetch('https://api.github.com/users/wesbos').then(res => {
+        //     console.log(res);
+        //     return res.json();
+        // }).then(res => {
+        //     console.log(res);
+        // }).catch(err => {
+        //     console.error('OHOHIHHOHOHOH NNNoooo');
+        //     console.error(err);
+
+        // })
+        // const video = document.querySelector('.handsome');
+
+        // navigator.mediaDevices.getUserMedia({ video: true }).then(mediaStream => {
+        //     video.srcObject = mediaStream;
+        //     // video.scr = window.URL.createObjectURL;
+        // });
+
+
+    const video = document.querySelector('.handsome');
+    navigator.mediaDevices.getUserMedia({ video: true }).then(mediaStream => {
+        console.log(mediaStream);
+
+         video.srcObject = mediaStream;
+         video.load();
+         video.play();
+    }).catch(err => {
+      console.log(err);
+    })
+        
+
+
+    </script>
+</body>
+</html>

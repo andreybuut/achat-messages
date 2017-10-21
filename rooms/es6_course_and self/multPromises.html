@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        async function got() {
+            const p1 = fetch('https://api.github.com/users/wesbos');
+            const p2 = fetch('https://api.github.com/users/stolinski');
+
+            const res = await Promise.all([p1, p2]);
+            console.log(res)
+            const dataPromises = res.map(r => r.json());
+            console.log(dataPromises);
+            const [wes, scott] = await Promise.all( [p1, p2] );
+            console.log(wes, scott);
+
+
+
+        }    
+
+
+        async function getNames(names){
+            const promises = await names.map(name => fetch(`https://api.github.com/users/${name}`).then(r => r.json()));
+            const [me, ...other] = await Promise.all(promises);
+            console.log(me, other);
+        }
+        getNames(['aaxbut', 'wesbos', 'butik484', 'stolinski']);
+
+    </script>
+    
+</body>
+</html>

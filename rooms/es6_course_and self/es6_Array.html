@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<div class="people">
+    <p>Andrey</p>
+    <p>Wes</p>
+    <p>Tom</p>
+</div>
+<body>
+<script>
+
+    const people = document.querySelectorAll('.people p');
+    const peopleArray = Array.from(people, person =>{
+
+      //  console.log(person);
+        return person.textContent;
+    });
+
+    //const names = peopleArray.map(person => person.textContent);
+    //console.log(peopleArray);
+
+    function summAll(){
+        const nums = Array.from(arguments);
+        return nums.reduce(((prev, next) => prev + next))
+    }
+    const t = summAll(2,324,5,6,52,2,324,665,32);
+    console.log(t);
+
+</script>
+</body>
+</html>

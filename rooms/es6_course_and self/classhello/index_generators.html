@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Extending</title>
+</head>
+<body>
+  <script>
+
+    function listPeople(){
+      console.log('Wes');
+      console.log('Andrey');
+      console.log('Max');
+      console.log('Snickers');
+    }
+
+    function* listPeople2(){
+      let i = 0;
+      yield i;
+      i++;
+      yield i;
+      i++;
+      yield i;
+      i++;
+      yield i;
+      i++;
+
+      yield 'Wes';
+      yield 'Andrey';
+      yield 'Max';
+      yield'Snickers';
+
+    }
+    listPeople();
+
+    const people = listPeople2();
+
+    const inventors = [
+      {first: 'Albert', last: 'Einstein', year: 1879},
+      {first: 'Isaac', last: 'Newton', year: 1643},
+      {first: 'Galileo', last: 'Galilei', year: 1564},
+      {first: 'Marie', last: 'Curie', year: 1867},
+      {first: 'Johannes', last: 'Kepler', year: 1571},
+      {first: 'Nicolaus', last: 'Copernicus', year: 1473},
+      {first: 'Max', last: 'Planck', year: 1858},
+    ];
+
+    function* loop(arr){
+      for (const item of arr){
+        yield item;
+      }
+    }
+    const inventorGen = loop(inventors);
+
+    function ajax(url){
+      fetch(url).then(data => data.json()).then(data => dataGen.next(data))
+
+    }
+
+    function* steps(){
+      console.log('fetching beers')
+      const beers = yield ajax('http://api.react.beer/v2/search?q=hops&type=beer');
+      console.log(beers);
+      console.log('Fetching wes');
+      const wes = yield ajax('https://api.github.com/users/wesbos');
+      console.log(wes);
+      console.log('Fetching fatjoe')
+      const fatJoe = yield ajax('https://api.discogs.com/artists/51988');
+      console.log(fatJoe);
+
+    }
+    const dataGen = steps();
+    dataGen.next();
+    function* lyrics(){
+      yield 'Wes 1';
+      yield 'Andrey 1';
+      yield 'Max 1';
+      yield'Snickers  1';
+
+
+    }
+    for (const line of lyrics()){
+      console.log(line);
+    }
+
+  </script>
+  
+</body>
+</html>

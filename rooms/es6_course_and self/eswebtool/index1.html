@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS modules</title>
+</head>
+<body onload="init()">
+    <div class="grav">
+        <h1>Test label</h1>
+    </div>
+    <script>
+        function init(){
+            function ajax(url){
+                fetch(url).then(data => data.json()).then(data => beers.next(data));
+                }
+
+                function* steps(elemet){
+                    const elemDiv = document.createElement('div');
+
+                    // console.log('fetching beers')
+                    // const beers = yield ajax('http://api.react.beer/v2/search?q=hops&type=beer');
+                    // elemDiv.textContent =`<span>${beers}</span>`;
+                    // elemet.appendChild(elemDiv);
+                    // console.log(beers);
+                    const elemDiv1 = document.createElement('div');
+                    console.log('Fetching wes');
+                    const wes = yield ajax('https://api.github.com/users/wesbos');
+                    console.log(wes.bio);
+                    elemDiv1.innerHTML =`${wes.bio}`;
+                    elemet.appendChild(elemDiv1);
+                    elemet.appendChild(elemDiv1);
+                    elemet.appendChild(elemDiv1);
+                    elemet.appendChild(elemDiv1);
+                    // console.log('Fetching fatjoe')
+                    // const elemDiv2 = document.createElement('div');
+                    // const fatJoe = yield ajax('https://api.discogs.com/artists/51988');
+                    // console.log(fatJoe);
+                    // elemDiv2.textContent =`<span>${fatJoe}</span>`;
+                    // elemet.appendChild(elemDiv2);
+                }
+            
+            const el = document.querySelector(".grav");
+
+            const beers = steps(el);
+
+            beers.next();
+            
+            // for (const line of beers){
+            //     console.log(line);
+            // }
+
+            
+
+            console.log('Hello user');
+        }
+
+
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        // const res = fetch('https://github.com');
+        // console.log(res);
+
+        // setInterval(() => console.log(Date.now()), 500);
+
+        function breathe(amount){
+            return new Promise((resolve, reject) =>{
+                if (amount < 500){
+                    reject('This is too small of a value');
+                }
+                setTimeout(() => resolve(`Done for ${amount} ms `), amount);
+            });
+        }
+
+        // const userPage = route.get('/user', async (req,res, next) => {
+        //     try {
+        //       const users = wait User.find();
+        //     } catch(e) {
+        //         res.render(e);
+        //     }
+
+        // })
+
+        function catchErrors(fn){
+            return function(...args) {
+                return fn(...args).catch((err) =>{
+                console.error('Fuuuck');
+                console.error(err);
+            });
+          }
+        }
+
+
+        async function go(){
+            try {
+            console.log('start');
+            const res = await breathe(1234);
+            console.log(res);
+            const res2 = await breathe(234);
+            console.log(res2);
+            const res3 = await breathe(434);
+            console.log(res3);
+            const res4 = await breathe(134);
+            console.log(res4);
+            const res5 = await breathe(2234);
+            console.log(res5);
+
+            console.log('end');
+
+            } catch(err){
+                console.error('ERORR too small')
+            }
+            
+        }
+        const wrappedFunction = catchErrors(go);
+
+        wrappedFunction('Andrey', 'But');
+        
+
+                
+
+
+
+    </script>
+</body>
+</html>

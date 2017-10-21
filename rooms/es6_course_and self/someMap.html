@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<button>Snik</button>
+<button>Snik1</button>
+<button>Snik2</button>
+<button>Snik3</button>
+
+<script type="text/javascript">
+    const clickCounts = new Map();
+    const buttons = document.querySelectorAll('button');
+
+    buttons.forEach(button => {
+        clickCounts.set(button, 0);
+        button.addEventListener('click', function(){
+            const val = clickCounts.get(this);
+            clickCounts.set(this, val + 1);
+            console.log(clickCounts);
+        });
+    });
+</script>
+
+  
+</body>
+
+
+</html>

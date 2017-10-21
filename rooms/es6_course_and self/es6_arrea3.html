@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const ages = [32,12,14,16];
+
+    const adultPresent = ages.some(age => age >= 18);
+    console.log(adultPresent);
+    const allOldEnough = ages.every(age => age >= 19);
+    console.log(allOldEnough);
+
+    const featured = ['Deep Dish', 'Peperoni', 'Hawaiian'];
+    const specialty = ['Meatzaa', 'Spicy Mama', 'Margarita'];
+
+    const pizzas = [...featured, 'veg', ...specialty];
+    const fridayPizzas = [...pizzas];
+
+    const deepDisch = {
+        pizzaName: 'Deep Disch',
+        size:'Medium',
+        ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheesse']
+    };
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        const dogs = new Map();
+        dogs.set('snik', 3);
+        dogs.set('suny', 13);
+        dogs.set('hugo', 12);
+        dogs.forEach((val, key) => console.log(key, val));
+
+        for (const [key, value] of dogs){
+            console.log(`The ${key} and age is ${key}`);
+        }
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+    button { font-size: 100px;}
+    .on {background: #ffc600}
+
+</style>
+
+</head>
+
+<body onload="draw();">
+  <canvas id="circle" width="500" height="500"></canvas>
+
+  <button id="pushy">Push me </button>
+<script>
+    function calculateBill(total, tax = 0.13, tip = 0.15){
+        return total + (total * tax) + (total * tip);
+    }
+
+    const totalBill = calculateBill(100, undefined, 0.25);
+    console.log(totalBill);
+    const name = 'Anrey';
+
+    const button = document.querySelector('#pushy');
+    button.addEventListener('click', function(mouseClick) {
+        this.classList.toggle('on');
+        console.table(mouseClick);
+
+    });
+    var arrMouse = [];
+
+    const circle = document.querySelector('#circle');
+    circle.addEventListener('click', function(mouseClick){
+        //this.classList.toggle('onCircle');
+        arrMouse.push(mouseClick);
+        console.log(MouseEvent);
+        let x = mouseClick.clientX;
+        let y = mouseClick.clientY;
+        drawCircle(5, x, y);
+        console.log(`X: ${x}, Y:  ${y}`);
+
+    });
+    function drawCircle(radius, x, y) {
+        var canvas = document.getElementById('circle');
+        const ctx = canvas.getContext('2d');
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, 3 * Math.PI, false);
+        ctx.lineWidth = 2.5;
+        ctx.strokeStyle = '#a4ff4f';
+        ctx.stroke();
+    }
+
+    function draw(R=45) {
+        var canvas = document.getElementById('circle');
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+            var X = canvas.width / 2;
+            var Y = canvas.height / 2;
+            //var R = 45;
+            ctx.beginPath();
+            ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = '#FF0000';
+            ctx.stroke();
+            }
+    }
+</script>
+</body>
+</html>

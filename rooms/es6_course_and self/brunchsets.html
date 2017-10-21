@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        
+        let dog1 = { name: 'Snickers', age: 3};
+        let dog2 = { name: 'Synny', age: 3};
+        const weakSauce = new WeakSet([dog2, dog1]);
+
+        // for (const dog of weakSauce){
+        //     console.log(dog);
+        // }
+
+        console.log(WeakSet);
+        dog1 = null;
+        console.log(WeakSet);
+
+    </script>
+</body>
+</html>

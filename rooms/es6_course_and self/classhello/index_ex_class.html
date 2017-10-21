@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inheritance Review</title>
+</head>
+<body>
+  <section>
+    <form class="chat">
+    <div id="messages"></div>
+    <input id="chat-input" type="text" placeholder="say anything" autofocus/>
+    </form>
+  </section>
+
+  <button id="myBtn" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+  <script>
+    const formChat = document.getElementById('myModal');
+    const btn = document.getElementById("myBtn");
+
+    btn.onclick = function(){
+      formChat.style.display = "block";
+    }
+
+    class Animal {
+      constructor(name) {
+        this.name = name;
+        this.thirst = 100;
+        this.belly = [];
+      }
+      drink() {
+        this.thirst -= 10;
+        return this.thirst;
+      }
+      eat(food) {
+        this.belly.push(food);
+        return this.belly;
+      }
+    }
+
+    class Dog extends Animal {
+
+      constructor(name, breed){
+        super(name);
+        this.breed = breed;
+      }
+
+      bark(){
+        console.log('Bark, Bark Bark')
+      }
+    }
+
+    const rhino = new Animal('Rhiney');
+    const snickers = new Dog('Snickers');
+  </script>
+  
+</body>
+</html>

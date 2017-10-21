@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        function calculateBill(total, tax = 0.13, tip = 0.15){
+            return total + (total * tax) + (total *tip);
+        }
+        const totalBill = calculateBill(100);
+        console.log(totalBill);
+        //require('axios');
+        axios.get("http://127.0.0.1:8000/room")
+          .then(function (response) {
+          	console.log(response);
+        })
+          .catch(function (error) {
+          	console.log(error);
+        });
+    </script>
+</head>
+<body>
+
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</html>
