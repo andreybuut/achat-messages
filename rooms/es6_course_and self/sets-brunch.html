@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        
+        const brunch = Set();
+        brunch.add('wes');
+        brunch.add('sarah');
+        brunch.add('simone');
+
+        const line = brunch.values();
+        console.log(line.next().value);
+        console.log(line.next().value);
+        console.log(line.next().value);
+
+        brunch.add('Heather');
+        brunch.add('Snickers');
+        console.log(line.next().value);
+        console.log(line.next().value);
+        console.log(line.next().value);
+
+    </script>
+</body>
+</html>

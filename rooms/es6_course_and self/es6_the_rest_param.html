@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function convertCurrency(rate, tax, tip, ...amount){
+        return amount.map(item => item * rate)
+
+    }
+    const t = convertCurrency(1.54, 10, 23,52,144);
+    console.log(t);
+    const t1 = convertCurrency(1.54, 10);
+    console.log(t1);
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

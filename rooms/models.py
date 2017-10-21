@@ -4,9 +4,8 @@ from model_utils.models import TimeStampedModel
 
 
 class Room(TimeStampedModel):
-    """
-    Room model
-    """
+    """Room model"""
+
     name = models.CharField(
         verbose_name=_('Room name'),
         max_length=75,
@@ -16,10 +15,11 @@ class Room(TimeStampedModel):
 
 
 class Message(TimeStampedModel):
-    """
-    Model for save messages
-    """
+    """Model for save messages"""
+
     room = models.ForeignKey('Room', related_name='messages')
+    test = models
+
     text = models.CharField(
         max_length=75,
         blank=True,

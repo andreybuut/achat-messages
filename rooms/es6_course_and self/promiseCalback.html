@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body onload="tst()">
+    
+
+    <script type="text/javascript">
+    navigator.geolocation.getCurrentPosition(function (pos) {
+      console.log('it worked!');
+      console.log(pos);
+    }, function (err) {
+      console.log('it failed!');
+      console.log(err);
+    });
+
+    function getCurrentPosition(){
+        return new Promise((resolve, reject) => {
+            navigator.geolocation.getCurrentPosition(resolve, reject);
+        });
+    }
+
+    async function go() {
+        const pos = await getCurrentPosition();
+        console.log(pos);
+    }
+    go();
+
+    function tst(){
+        console.log('page was loaded!');
+        console.log(this);
+        let newButton = document.createElement("button");
+        newButton.label='Hello';
+
+
+    }
+
+    </script>
+</body>
+</html>

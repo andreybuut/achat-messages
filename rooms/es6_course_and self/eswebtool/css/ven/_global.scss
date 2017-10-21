@@ -1,0 +1,79 @@
+//---------------------------------------------------------
+// Global UI Styling
+//---------------------------------------------------------
+body {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+p {
+  font-size: 20px;
+
+  &.small {
+    font-size: 16px;
+  }
+}
+
+a {
+  color: $theme-success;
+  outline: none;
+
+  &:hover {
+    color: $theme-success;
+    outline: true;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+
+
+hr {
+  &.star-light,
+  &.star-primary {
+    border: 0;
+    border-top: solid 5px;
+    margin: 25px auto 30px;
+    max-width: 250px;
+    padding: 0;
+    text-align: center;
+
+    ::after {
+      content: '\f005';
+      display: inline-block;
+      font-family: FontAwesome;
+      font-size: 2em;
+      padding: 0 .25em;
+      position: relative;
+      top: -.8em;
+    }
+  }
+
+  &.star-light {
+    border-color: $white;
+
+    ::after {
+      background-color: $theme-success;
+      color: $white;
+    }
+
+  }
+
+  &.star-primary {
+    border-color: $theme-primary;
+
+    ::after {
+      background-color: $white;
+      color: $theme-primary;
+    }
+  }
+}

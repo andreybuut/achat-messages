@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let inRing = 'Hulk Hogan';
+    let onSide = 'The Rock';
+
+    console.log(inRing, onSide);
+    [inRing, onSide] = [onSide, inRing];
+    console.log(inRing, onSide);
+
+    function convertCurrency(amount){
+        const converted = {
+            USD: amount * 0.76,
+            GPB: amount * 0.53,
+            AUD: amount * 1.01,
+            MEX: amount * 13.30,
+        };
+        return converted;
+    }
+    const hundo = convertCurrency(100);
+    console.log(hundo);
+    console.log(hundo);
+    const {USD, ...others} = convertCurrency(100);
+    console.log(USD);
+
+    function tipCalc({total, tip = 0.15, tax = 0.13} = {}){
+        return total + (tip * total) +(tax * total);
+    }
+    const bill = tipCalc({total: 200, tip: 0.20, tax: 0.20});
+    console.log(bill);
+    const bill1 = tipCalc();
+    console.log(bill1);
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const runner = ['wes', 123, 5.5, 5, 4, 3, 54];
+    const [name, id, ...runs] = runner;
+
+    const team = ['wes', 'kait', 'lux', 'sheena', 'kely'];
+    const [cap, ass, ...other] = team;
+
+    const first = 'snikkers';
+    const last = 'bos';
+    const age = 2;
+    const breed = 'king Charles Cav';
+
+    const dog = {
+        first,
+        last,
+        age,
+        breed,
+    };
+    console.log(dog);
+
+    const modal = {
+        create(item) {
+            console.log(item)
+
+        }
+
+    }
+    console.log(modal.create('wdwedwdwdwdewedw'));
+
+    const key = 'pocketColor';
+    const value = '#ffc600';
+
+    const tShirt = {
+        [key]: value
+    };
+    console.log(tShirt)
+
+    // wesbos.com/wp-json/wp/v2/posts
+
+    console.log('try do')
+    const postsPromise = fetch('http://wesbos.com/wp-json/wp/v2/posts', {mode: 'no-cors'});
+    postsPromise
+        .then(data => data.json())
+        .then(data => { console.log(data) })
+        .catch((err) => {
+            console.log(err);
+        })
+
+const postsPromise = fetch('http://wesbos.com/wp-json/wp/v2/posts');
+postsPromise
+  .then(data => data.json())
+  .then(data => { console.log(data) })
+  .catch((err) => {
+    console.error(err);
+  })
+
+
+
+
+</script>
+
+</body>
+</html>

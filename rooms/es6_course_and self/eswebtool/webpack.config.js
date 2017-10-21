@@ -1,0 +1,50 @@
+const webpack = require('webpack');
+const nodeEnv = process.env.NODE_ENV || 'prodaction';
+//const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+module.exports = {
+    devtool: 'source-map',
+    "target": "node",
+    entry: {
+        filename: './app.js'
+    },
+    output: {
+        filename: '_build/bundle.js'
+    },
+    module:{
+        loaders:[
+        {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader',
+            query: {
+                presets: ['es2015-native-modules']
+            }
+        },
+        // {
+        //     test: /\.scss$/,
+        //     loader: "css-loader"
+        // },
+        {
+            test: /\.scss$/,
+            loaders: ["style-loader", "css-loader", "sass-loader"]
+        },
+
+
+        ]
+    },
+    plugins: [
+    // uglify js
+    new webpack.optimize.UglifyJsPlugin({
+        compress: { warnings: false },
+        output: { comments: false},
+        sourceMap: true
+    }),
+
+    //env plugin
+    new webpack.DefinePlugin({
+        'proccess.env': {NODE_ENV: JSON.stringify(nodeEnv)}
+    })
+    ]
+
+}
