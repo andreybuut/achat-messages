@@ -35,7 +35,7 @@ class RoomDetailView(
     viewsets.GenericViewSet
 
 ):
-    name = 'rooms-detail'
+    name = 'room-detail'
 
     queryset = Room.objects.all()
     serializer_class = RoomSerializer

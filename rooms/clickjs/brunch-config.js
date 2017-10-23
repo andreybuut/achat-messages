@@ -19,6 +19,7 @@ exports.npm = {
     $: 'jquery',
     bootstrap: 'bootstrap',
     axios: 'axios',
+    Cookies: 'js-cookie',
   },
   styles: {
     bootstrap: ['dist/css/bootstrap.css']

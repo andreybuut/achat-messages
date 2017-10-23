@@ -25,7 +25,9 @@ SECRET_KEY = 'wum-mizp*u!nb-npfhlc8&8d6k@k&+1a%$yqrga6@9fs012^zg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '09864798.ngrok.io']
+CSRF_USE_SESSIONS = True
+
+ALLOWED_HOSTS = ['127.0.0.1', '92781e26.ngrok.io']
 
 
 # Application definition
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'debug_toolbar',
     'rooms'
 ]
 MIDDLEWARE = [
@@ -48,7 +51,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-   # 'rest_framework.authentication.SessionAuthentication',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+ #   'rest_framework.authentication.SessionAuthentication',
    # 'rest_framework.authentication.BasicAuthentication'
 ]
 
@@ -69,6 +73,13 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    )
+}
+
 
 WSGI_APPLICATION = 'achat.wsgi.application'
 
@@ -122,4 +133,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_ALLOW_ALL = True
+
+INTERNAL_IPS = '127.0.0.1'
