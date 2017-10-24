@@ -46,6 +46,7 @@ class MessageListView(viewsets.ViewSet,
     queryset = Message.objects.all()
     name = 'messages-list'
     serializer_class = MessageSerializer
+    
 
 
 class MessageDetailViewSet(

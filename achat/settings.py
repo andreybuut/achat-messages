@@ -25,10 +25,6 @@ SECRET_KEY = 'wum-mizp*u!nb-npfhlc8&8d6k@k&+1a%$yqrga6@9fs012^zg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-CSRF_USE_SESSIONS = True
-
-ALLOWED_HOSTS = ['127.0.0.1', '92781e26.ngrok.io']
-
 
 # Application definition
 
@@ -41,9 +37,44 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'debug_toolbar',
+    'corsheaders',
     'rooms'
 ]
+
+# CORS configuration
+CSRF_COOKIE_NAME = "XSRF-TOKEN"
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_METHODS = (
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+)
+
+CORS_ALLOW_HEADERS = (
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+    'Access-Control-Allow-Origin',
+    'YO',
+    'XSRF-TOKEN',
+    'xsrfValue',
+    'Vary'
+)
+# End CORS config
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -52,8 +83,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
- #   'rest_framework.authentication.SessionAuthentication',
-   # 'rest_framework.authentication.BasicAuthentication'
 ]
 
 ROOT_URLCONF = 'achat.urls'
@@ -73,12 +102,6 @@ TEMPLATES = [
         },
     },
 ]
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.permissions.AllowAny',
-    )
-}
 
 
 WSGI_APPLICATION = 'achat.wsgi.application'
